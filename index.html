@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualize seu orçamento aqui!</title>
+     <style>
+         *{
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+         }
+         .siteBackPlate{
+             background-image: url(./resurces/background-image.jpg);
+             background-size: 110%;
+         }
+         .siteBody{
+             background-color: white;
+             width: 80%;
+             border-left: 2px solid black;
+             border-right: 2px solid black;
+             margin-left: auto;
+             margin-right: auto;
+             text-align: center;
+             opacity: 70%;
+             font-size: 20px;
+         }
+         .resultButton{
+             border: 0px solid black;
+             background-color: cyan;
+             border-radius: 10px;
+             width: 10vw;
+             height: 5vh;
+         }
+         .resultButton:hover{
+             box-shadow: 1px 1px 5px purple;
+         }
+         h1{
+             background-color: cyan;
+         }
+     </style>
+</head>
+<body>
+    <div class="siteBackPlate">
+        <div class="siteBody">
+            <h1>VAMOS CALCULAR O ORÇAMENTO DO SEU PROJETO</h1><hr>
+            <h2>Favor, preencha o formulário abaixo:</h2>
+            <div class="formulario">
+                <form action="">
+                    <section>
+                        <div>
+                            <label for="livingRooms">Quantidade de Salas de Estar:</label>
+                            <input type="number" id="livingRooms">
+                        </div>
+                        <div>
+                            <label for="rooms">Quantidade de Quartos:</label>
+                            <input type="number" id="rooms">
+                        </div>
+                        <div>
+                            <label for="bathrooms">Quantidade de Banheiros:</label>
+                            <input type="number" id="bathrooms">
+                        </div>
+                        <div>
+                            <label for="gourmetAreas">Quantidade de Areas Gourmet:</label>
+                            <input type="number" id="gourmetAreas">
+                        </div>
+                        <div>
+                            <label for="kitchens">Quantidade de Cozinhas:</label>
+                            <input type="number" id="kitchens">
+                        </div>
+                        <div>
+                            <label for="dinnerRooms">Quantidade de Salas de Jantar:</label>
+                            <input type="number" id="dinnerRooms">
+                        </div>
+                        <div>
+                            <label for="floors">Quantidade de Andares:</label>
+                            <input type="number" id="floors">
+                        </div>
+                        <div>
+                            <label for="latters">Quantidade de Escadas:</label>
+                            <input type="number" id="latters">
+                        </div>
+                        <div>
+                            <label for="pools">Quantidade de Piscinas:</label>
+                            <input type="number" id="pools">
+                        </div>
+                        <div>
+                            <label for="lightareas">Quantidade de Áreas de Luz:</label>
+                            <input type="number" id="lightareas">
+                        </div>
+                        <div>
+                            <label for="storages">Quantidade de Armazens:</label>
+                            <input type="number" id="storages">
+                        </div>
+                        <div>
+                            <label for="dishwatshers">Quantidade de Lavanderias:</label>
+                            <input type="number" id="dishwatshers">
+                        </div>
+                        <div>
+                            <label for="gardenSpace">Área do Quintal (m²):</label>
+                            <input type="number" id="gardenSpace">
+                        </div>
+                    </section>
+                    <section>
+                        <div><br><hr><br>
+                            <label for="qPhotos">Quantidade de fotos:</label>
+                            <input type="number" id="qPhotos">
+                        </div>
+                        <div>
+                            <label for="qMovies">Quantidade de Vídeos:</label>
+                            <input type="number" id="qMovies">
+                        </div><br><hr><br>
+                    </section>
+                    <section>
+                        <div>
+                            <p>Tipo do Telhado:<p><br>
+                            <label for="colonial">Colonial</label><input type="radio" id="colonial" name="floatType" value="0"><br>
+                            <label for="embutido">Embutido</label><input type="radio" id="embutido" name="floatType" value="1"><br><hr><br>
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <p>Casa de Esquina:</p><br>
+                            <label for="yesQ">Sim</label><input type="radio" id="yesQ" name="Esquina" value="0"><br>
+                            <label for="noQ">Não</label><input type="radio" id="noQ" name="Esquina" value="1"><br>
+                        </div><hr><br>
+                    </section>
+                    <section>
+                        <div>
+                            <p>Localização:</p><br>
+                            <label for="cityL">Cidade</label><input type="radio" id="cityL" name="Location" value="0">
+                            <label for="fieldL">Campo</label><input type="radio" id="fieldL" name="Location" value="1">
+                            <label for="florestL">Floresta</label><input type="radio" id="florestL" name="Location" value="2">
+                            <label for="IlandL">Ilha</label><input type="radio" id="IlandL" name="Location" value="3"><br><br>
+                        </div><hr><br>
+                    </section>
+                    <section>
+                        <div>
+                            <button onclick="Calcular()" class="resultButton">CALCULAR</button>
+                        </div><br>
+                    </section>
+                </form>
+                <script>
+                    function Calcular(){
+                        //Quantidade Estáticas
+                            var SalasDeEstar = document.getElementById('livingRooms').value;
+                            var Quartos = document.getElementById('rooms').value;
+                            var Banheiros = document.getElementById('bathrooms').value;
+                            var AreasGoumerts = document.getElementById('gourmetAreas').value;
+                            var Cozinhas = document.getElementById('kitchens').value;
+                            var SalasDeJantar = document.getElementById('dinnerRooms').value;
+                            var Andares = document.getElementById('floors').value;
+                            var Escadas = document.getElementById('latters').value;
+                            var Piscinas = document.getElementById('pools').value;
+                            var AreasDeLuz = document.getElementById('lightareas').value;
+                            var Armazens = document.getElementById('storages').value;
+                            var Lavanderias = document.getElementById('dishwatshers').value;
+                            var AreaDoQuintal = document.getElementById('gardenSpace').value;
+                            var QuantidadeDeFotos = document.getElementById('qPhotos').value;
+                            var QuantidadeDeFilmes = document.getElementById('qMovies').value;
+                        //Quantidades Estáticas
+                        //Tipo do Telhado
+                            const TipoDoTelhado = document.querySelectorAll('input[name="floatType"]');
+                            let TelhadoSelecionado;
+                            for (const CadaTelhado of TipoDoTelhado) {
+                                if (CadaTelhado.checked) {
+                                    TelhadoSelecionado = CadaTelhado.value;
+                                    break;
+                                }
+                            }
+                        //Tipo do Telhado (TelhadoSelecionado)
+                        //Casa de Esquina
+                            const OpcaoDeEsquina = document.querySelectorAll('input[name="Esquina"]');
+                            let CasaDeEsquina;
+                            for (const CadaOpcao of OpcaoDeEsquina) {
+                                if (CadaOpcao.checked) {
+                                    CasaDeEsquina = CadaOpcao.value;
+                                    break;
+                                }
+                            }
+                        //Casa de Esquina (CasaDeEsquina)
+                        //Localização Da Casa
+                            const Localizacao = document.querySelectorAll('input[name="Location"]');
+                            let Local;
+                            for (const CadaLocal of Localizacao){
+                                if (CadaLocal.checked) {
+                                    Local = CadaLocal.value;
+                                    break;
+                                }
+                            }
+                        //Localização Da Casa (Local)
+                        //Calculo Da Formula
+                        var valorMinuto = 0.2;
+
+                        var Interior = (SalasDeEstar*30*valorMinuto)+(Quartos*20*valorMinuto)+(Banheiros*15*valorMinuto)+(AreasGoumerts*60*valorMinuto)+(Cozinhas*40*valorMinuto)+(SalasDeJantar*10*valorMinuto)+(AreasDeLuz*10*valorMinuto)+(Armazens*5*valorMinuto)+(Lavanderias*10*valorMinuto);
+                        var Interior2 = Interior*(Andares*1.2)+(Escadas*20*valorMinuto)+(Piscinas*30*valorMinuto)+(AreaDoQuintal*0.5);
+
+                        if (CasaDeEsquina==0){
+                            Interior2=Interior2*1.1;
+                        }else{
+                            Interior2=Interior2*1.3;
+                        }
+
+                        if (TelhadoSelecionado==0){
+                            Interior2=Interior2*1.4;
+                        }else{
+                            Interior2=Interior2*1.2;
+                        }
+
+                        var Render = (QuantidadeDeFotos*15*valorMinuto)+(QuantidadeDeFilmes*1440*valorMinuto)
+                        
+                        switch (Local) {
+                            case 0:
+                                Render=Render+(20*valorMinuto);
+                                break;
+                            case 1:
+                                Render=Render+(40*valorMinuto);
+                                break;
+                            case 2:
+                                Render=Render+(15*valorMinuto);
+                                break;
+                            case 3:
+                                Render=Render+(90*valorMinuto);
+                                break; 
+                        }
+
+                        var ResultadoFinal = Render+Interior2;
+                        var QuantidadeDeHoras = (ResultadoFinal*5)/60;
+
+                        alert('O Seu Trabalho Custará: R$'+ ResultadoFinal.toFixed(2) +'\nE você demorará '+ QuantidadeDeHoras.toFixed(1); +' horas para concluir esse serviço.');
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
